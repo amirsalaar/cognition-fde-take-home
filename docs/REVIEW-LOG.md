@@ -76,3 +76,11 @@ actually made.
   the two payload columns balanced. No findings.
 - pr-test-analyzer: pure presentation change, existing E2E still covers the
   detail view rendering. No new tests required.
+
+## PR #3: docs screenshots (feature/docs-screenshots)
+
+- code-reviewer pass: capture script `scripts/capture-screenshots.ts` is dev
+  tooling only, uses the seeded synthetic accounts, and hits the local Compose
+  stack. No app code touched. Screenshots verified legible and show the wrapped
+  audit JSON from PR #2.
+- comment-analyzer: script header comment matches behavior. No findings.
