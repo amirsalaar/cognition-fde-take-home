@@ -68,3 +68,11 @@ actually made.
   `compose.yaml` note about omitting `AUTH_URL` (accurate, and load-bearing for
   the containerized E2E run).
 - Finding (fixed): none inaccurate at final pass.
+
+## PR #2: wrap audit trail JSON (fix/audit-json-wrap)
+
+- code-simplifier / code-reviewer pass on the 2-line diff: `break-all` chosen over
+  `break-words` because JSON strings have no natural break points; `w-1/3` keeps
+  the two payload columns balanced. No findings.
+- pr-test-analyzer: pure presentation change, existing E2E still covers the
+  detail view rendering. No new tests required.
