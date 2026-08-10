@@ -1,0 +1,23 @@
+{
+  "skill_name": "business-storytelling",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I need to present a proposal to our CTO to invest $500K in a new data platform. I have the business case in my head but I don't know how to structure it. Help me build the narrative for a 20-slide deck.",
+      "expected_output": "A structured story outline for the deck using the Four Signposts (Setting, Characters, Conflict, Resolution) and WHY/WHAT/HOW framework. Should include a Big Idea sentence, slide-by-slide narrative arc, and strong headlines for key slides. Should ask clarifying questions about the audience, context, or conflict before or after drafting.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "I have a bunch of customer churn data I need to present to the leadership team next Tuesday. Right now it's just tables and charts. How do I turn this into something they'll actually care about?",
+      "expected_output": "Practical guidance on transforming data into a narrative using the skill's data storytelling principles: lead with the insight (so-what), connect data to a human character or consequence, build conflict around what the data reveals, avoid the fire hose effect. Should produce either a concrete story outline or a step-by-step process to build one.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I sent this email to my VP and got no response. Can you help me rewrite it to actually get a decision? Here's what I sent: 'Hi Sarah, just wanted to follow up on the vendor contract discussion from last week's meeting. There are a few options we've been evaluating and I wanted to share some thoughts. Please let me know when you have time to discuss.'",
+      "expected_output": "A rewritten email with a strong subject line (headline), clear conflict/stakes established upfront, a Big Idea or recommendation stated explicitly, and a single specific ask. Should explain why the original failed (no stakes, no conflict, no clear ask) using the skill's vocabulary.",
+      "files": []
+    }
+  ]
+}
