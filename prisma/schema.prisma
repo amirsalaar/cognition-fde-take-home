@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  DEVELOPER
+  RELEASE_APPROVER
+  AUDITOR
+}
+
+enum FlagType {
+  BOOLEAN
+  PERCENTAGE_ROLLOUT
+}
+
+enum VirtualEnvironment {
+  DEV
+  STAGING
+  PRODUCTION
+}
+
+enum ChangeRequestStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+  APPLIED
+  ROLLED_BACK
+}
+
+enum ApprovalDecision {
+  APPROVE
+  REJECT
+}
+
+model User {
+  id             String          @id @default(cuid())
+  name           String
+  email          String          @unique
+  passwordHash   String
+  role           Role
+  changeRequests ChangeRequest[] @relation("requester")
+  decisions      ChangeRequest[] @relation("approver")
+  approvals      Approval[]
+  auditEvents    AuditEvent[]
+}
+
+model FeatureFlag {
+  id          String                 @id @default(cuid())
+  key         String                 @unique
+  name        String
+  description String
+  flagType    FlagType
+  states      FlagEnvironmentState[]
+  requests    ChangeRequest[]
+}
+
+model FlagEnvironmentState {
+  id                String             @id @default(cuid())
+  flagId            String
+  flag              FeatureFlag        @relation(fields: [flagId], references: [id])
+  environment       VirtualEnvironment
+  enabled           Boolean
+  rolloutPercentage Int
+  providerVersion   Int                @default(1)
+
+  @@unique([flagId, environment])
+}
+
+model ChangeRequest {
+  id                String              @id @default(cuid())
+  flagId            String
+  flag              FeatureFlag         @relation(fields: [flagId], references: [id])
+  environment       VirtualEnvironment
+  beforeEnabled     Boolean
+  beforeRollout     Int
+  proposedEnabled   Boolean
+  proposedRollout   Int
+  rationale         String
+  status            ChangeRequestStatus @default(DRAFT)
+  requesterId       String
+  requester         User                @relation("requester", fields: [requesterId], references: [id])
+  approverId        String?
+  approver          User?               @relation("approver", fields: [approverId], references: [id])
+  decisionRationale String?
+  version           Int                 @default(1)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  approvals         Approval[]
+  auditEvents       AuditEvent[]
+}
+
+model Approval {
+  id              String           @id @default(cuid())
+  changeRequestId String
+  changeRequest   ChangeRequest    @relation(fields: [changeRequestId], references: [id])
+  approverId      String
+  approver        User             @relation(fields: [approverId], references: [id])
+  decision        ApprovalDecision
+  rationale       String
+  createdAt       DateTime         @default(now())
+}
+
+// Append-only: no application route or UI path updates or deletes rows here.
+model AuditEvent {
+  id              String         @id @default(cuid())
+  actorId         String
+  actor           User           @relation(fields: [actorId], references: [id])
+  action          String
+  changeRequestId String?
+  changeRequest   ChangeRequest? @relation(fields: [changeRequestId], references: [id])
+  before          Json
+  after           Json
+  createdAt       DateTime       @default(now())
+}
