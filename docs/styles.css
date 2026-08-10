@@ -1,0 +1,112 @@
+/* Deck styling. Dark control-room look, matches the demo console. No frameworks. */
+:root {
+  --ink: #16181d;
+  --panel: #1e2128;
+  --edge: #2c313a;
+  --paper: #c9ccd3;
+  --dim: #7d8390;
+  --amber: #d99a2b;
+  --green: #4f9e6b;
+  --red: #c65454;
+  --blue: #5b8dc9;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: #0e1013;
+  color: var(--paper);
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", "IBM Plex Mono", Menlo, monospace;
+}
+
+.deck {
+  position: relative;
+  width: 100vw;
+  height: 56.25vw; /* 16:9 */
+  max-height: 100vh;
+  max-width: 177.78vh;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  padding: 4.5% 6%;
+}
+.slide.active { display: flex; }
+
+.eyebrow {
+  color: var(--amber);
+  font-size: 0.9vw;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+h1 { font-size: 2.6vw; font-weight: 600; margin-top: 0.6vw; line-height: 1.2; }
+h2 { font-size: 1.15vw; color: var(--dim); font-weight: 400; margin-top: 0.8vw; }
+
+.body { flex: 1; margin-top: 2vw; font-size: 1.05vw; line-height: 1.65; }
+
+.cols { display: flex; gap: 2.5vw; }
+.cols > div { flex: 1; }
+
+.panel {
+  border: 1px solid var(--edge);
+  background: var(--panel);
+  padding: 1.2vw 1.4vw;
+  margin-bottom: 1vw;
+}
+.panel h3 { font-size: 1vw; color: var(--amber); font-weight: 600; margin-bottom: 0.5vw; }
+
+ul { list-style: none; }
+li { padding-left: 1.2em; position: relative; margin-bottom: 0.45vw; }
+li::before { content: ">"; position: absolute; left: 0; color: var(--dim); }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.95vw; }
+th, td { border: 1px solid var(--edge); padding: 0.5vw 0.7vw; text-align: left; }
+th { color: var(--dim); font-weight: 400; }
+td.win { color: var(--green); }
+td.lose { color: var(--red); }
+
+pre {
+  font-size: 0.9vw;
+  line-height: 1.5;
+  color: var(--paper);
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  padding: 1vw;
+  overflow: hidden;
+}
+
+.good { color: var(--green); }
+.bad { color: var(--red); }
+.warn { color: var(--amber); }
+.dim { color: var(--dim); }
+a { color: var(--blue); }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  color: var(--dim);
+  font-size: 0.85vw;
+  border-top: 1px solid var(--edge);
+  padding-top: 0.8vw;
+}
+
+.evidence-row { display: flex; gap: 0.8vw; margin-bottom: 0.4vw; }
+.evidence-row .k { color: var(--dim); min-width: 9vw; }
+
+#slide-number {
+  position: absolute;
+  right: 2%;
+  bottom: 2.5%;
+  color: var(--dim);
+  font-size: 0.9vw;
+}
