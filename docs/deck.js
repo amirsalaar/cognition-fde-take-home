@@ -44,7 +44,7 @@
     if (Array.isArray(ev.reviewers) && ev.reviewers.length > 0) {
       ev.reviewers.forEach((r) => {
         const li = document.createElement("li");
-        li.textContent = r.agent + ": " + r.summary;
+        li.textContent = typeof r === "string" ? r : r.agent + ": " + r.summary;
         revList.appendChild(li);
       });
     } else {
