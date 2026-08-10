@@ -141,8 +141,8 @@ export default async function RequestDetailPage({
                 <td className="py-1 pr-3 text-dim">{event.createdAt.toISOString()}</td>
                 <td className="py-1 pr-3">{event.actor.name}</td>
                 <td className="py-1 pr-3 text-amber">{event.action}</td>
-                <td className="py-1 pr-3 text-dim">{JSON.stringify(event.before)}</td>
-                <td className="py-1">{JSON.stringify(event.after)}</td>
+                <td className="w-1/3 break-all py-1 pr-3 text-dim">{JSON.stringify(event.before)}</td>
+                <td className="w-1/3 break-all py-1">{JSON.stringify(event.after)}</td>
               </tr>
             ))}
           </tbody>
