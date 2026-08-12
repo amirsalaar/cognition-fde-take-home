@@ -2,184 +2,149 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Build vs Buy: Power Apps and a Devin-Assisted Custom Path</title>
+<title>Build vs Buy: Power Apps and Devin</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="deck">
 
-  <!-- Slide 1: Recommendation -->
+  <!-- Slide 1: Opening -->
   <section class="slide active">
-    <p class="eyebrow">recommendation // $250K/yr platform, 3 apps live, 10 more planned</p>
-    <h1>Keep Power Apps for governed workflows. Prove custom build with Devin on the next bounded tool.</h1>
+    <div class="body" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+      <p class="eyebrow">hypothetical company x cognition</p>
+      <h1 style="font-size:3.2vw;margin-top:1vw">Build vs Buy: Power Apps and Devin</h1>
+      <p class="dim" style="margin-top:2vw;font-size:1.2vw">Presenter: Amir Sojoudi</p>
+      <p class="dim" style="font-size:1.2vw">August 11, 2026</p>
+    </div>
+    <div class="footer"><span>hypothetical company x cognition</span><span>synthetic prototype, no production claims</span></div>
+  </section>
+
+  <!-- Slide 2: Recommendation and business setup -->
+  <section class="slide">
+    <p class="eyebrow">recommendation // series c fintech, ~60 engineers, ~$250K/yr power apps, 3 apps live, 10+ planned</p>
+    <h1>Keep Power Apps for governed workflows. Pilot Devin-assisted custom build on bounded tools.</h1>
     <div class="body">
       <div class="cols">
         <div class="panel">
-          <h3>LANE 1: RETAIN on Power Apps</h3>
+          <h3>RETAIN on Power Apps</h3>
           <ul>
             <li>KYC review queue</li>
             <li>Refunds dashboard</li>
-            <li>Anything touching payments, access, or risk policy today</li>
-            <li>Keeps DLP, Dataverse audit, managed environments, connector governance</li>
+            <li>Payments, access, and risk workflows</li>
           </ul>
         </div>
         <div class="panel">
-          <h3>LANE 2: PILOT the custom path</h3>
+          <h3>PILOT with Devin</h3>
           <ul>
-            <li>Feature-flag change-control plane, already prototyped with synthetic data</li>
-            <li>Git-native, reviewable, tested, containerized</li>
-            <li>Devin accelerates the engineering; your team owns design, security, review, and operations</li>
+            <li>Feature-flag change control, built proof point</li>
+            <li>One more low-risk internal tool</li>
           </ul>
         </div>
       </div>
-      <p class="dim">Power Apps and Devin are not substitutes. One is a governed application platform, the other accelerates engineering work you still own. Any migration decision is earned with evidence, not assumed.</p>
+      <p class="dim">Power Apps carries governance, audit, DLP, and managed operations. Custom build gives control and lower licensing dependence, but the team inherits security, reliability, and operating ownership.</p>
     </div>
-    <div class="footer"><span>build vs buy readout // VP engineering</span><span>synthetic prototype, no production claims</span></div>
+    <div class="footer"><span>build vs buy readout // VP engineering</span><span>migration decisions earned with evidence</span></div>
   </section>
 
-  <!-- Slide 2: What the spend buys -->
+  <!-- Slide 3: Use-case choice -->
   <section class="slide">
-    <p class="eyebrow">setting // what the platform provides today</p>
-    <h1>The $250K buys governance and operating leverage, not merely screen-building.</h1>
+    <p class="eyebrow">use-case choice // one pattern, four places</p>
+    <h1>The same control pattern fits four use cases, but risk determines where we build first.</h1>
     <div class="body">
       <table>
-        <tr><th>Platform control</th><th>What it does for the three live apps</th><th>If you build custom</th></tr>
-        <tr><td>Identity &amp; access (Entra ID)</td><td>SSO, MFA, conditional access</td><td>You build or integrate it</td></tr>
-        <tr><td>Dataverse auditing</td><td>Managed data-change audit</td><td>You build it (prototype: app-layer only)</td></tr>
-        <tr><td>DLP policies</td><td>Org-wide connector guardrails</td><td>No equivalent; must be designed</td></tr>
-        <tr><td>Environments &amp; ALM</td><td>Managed envs, solutions pipeline</td><td>Git, CI, and IaC replace it, at your cost</td></tr>
-        <tr><td>Connectors</td><td>Hundreds of governed integrations</td><td>Each integration is custom work</td></tr>
-        <tr><td>Low-code velocity + operations</td><td>Microsoft-run hosting and patching</td><td>Your on-call, your patching</td></tr>
-      </table>
-      <p class="dim" style="margin-top:1vw">Actual license economics must be validated against your tenant before claiming any savings. The $250K figure is the stated current spend, not an audited number.</p>
-    </div>
-    <div class="footer"><span>build vs buy readout</span><span>sources: Microsoft first-party docs, <a href="sources.md">docs/sources.md</a></span></div>
-  </section>
-
-  <!-- Slide 3: Candidate selection -->
-  <section class="slide">
-    <p class="eyebrow">conflict // where to test the custom path first</p>
-    <h1>KYC and refunds are the wrong first migration. Feature-flag control is the safer proving ground.</h1>
-    <div class="body">
-      <table>
-        <tr><th>Candidate</th><th>Blast radius</th><th>Data sensitivity</th><th>Integration complexity</th><th>Learning value</th></tr>
-        <tr><td>KYC review queue</td><td class="lose">high (compliance)</td><td class="lose">high (PII)</td><td class="lose">high</td><td>low, proves little safely</td></tr>
-        <tr><td>Refunds dashboard</td><td class="lose">high (money moves)</td><td class="lose">high (payments)</td><td class="lose">high</td><td>low</td></tr>
-        <tr><td><span class="warn">Feature-flag control plane</span></td><td class="win">low (virtual flags)</td><td class="win">none (synthetic)</td><td class="win">bounded</td><td class="win">high: 5 reusable primitives</td></tr>
-        <tr><td>Future low-risk internal tool</td><td class="win">low</td><td>varies</td><td>varies</td><td class="win">inherits the primitives</td></tr>
+        <tr><th>Use case</th><th>Decision</th><th>Why</th></tr>
+        <tr><td>KYC review queue</td><td class="lose">retain</td><td>compliance and PII risk</td></tr>
+        <tr><td>Refunds dashboard</td><td class="lose">retain</td><td>money movement risk</td></tr>
+        <tr><td><span class="warn">Feature-flag change control</span></td><td class="win">built proof point</td><td>same pattern, virtual data, recoverable failure</td></tr>
+        <tr><td>Low-risk internal tool</td><td class="good">next candidate</td><td>pattern extends; not built yet</td></tr>
       </table>
       <div class="panel" style="margin-top:1.2vw">
-        <h3>Why the bounded flag workflow wins</h3>
-        <ul>
-          <li>Real workflow shape (propose, approve, apply, audit) without touching money or PII</li>
-          <li>Failure is recoverable; a bad virtual flag change harms nothing</li>
-          <li>Every primitive it proves transfers to the ten tools still to build</li>
-        </ul>
+        <h3>Shared pattern</h3>
+        <pre>propose -> approve -> apply -> rollback -> audit</pre>
       </div>
     </div>
-    <div class="footer"><span>build vs buy readout</span><span>payment, KYC, access, risk flags stay out of scope</span></div>
+    <div class="footer"><span>build vs buy readout</span><span>only the feature-flag workflow was built</span></div>
   </section>
 
-  <!-- Slide 4: What was built -->
-  <section class="slide">
-    <p class="eyebrow">resolution part 1 // the working prototype</p>
-    <h1>The prototype shows the control workflow we would need to own.</h1>
-    <div class="body cols">
-      <div style="flex:1.4">
-        <img class="shot" src="screenshots/queue.png" alt="Change-control queue">
-        <img class="shot" src="screenshots/request-detail.png" alt="Request detail with audit trail">
-      </div>
-      <div>
-        <div class="panel">
-          <h3>Workflow (fake provider, virtual flags)</h3>
-          <pre>Developer -> Approver -> Apply / Rollback -> Auditor
-DRAFT -> PENDING_APPROVAL -> APPROVED -> APPLIED -> ROLLED_BACK
-                     \-> REJECTED</pre>
-        </div>
-        <div class="panel">
-          <h3>Five reusable primitives</h3>
-          <ul>
-            <li>server-side role policy</li>
-            <li>state-transition guard</li>
-            <li>two-person approval</li>
-            <li>append-only audit writer</li>
-            <li>provider adapter</li>
-          </ul>
-        </div>
-        <p class="dim">Provider is fake/simulated. All flags and environments are virtual labels in a demo database.</p>
-      </div>
-    </div>
-    <div class="footer"><span>build vs buy readout</span><span>screenshots from the running prototype</span></div>
-  </section>
-
-  <!-- Slide 5: Delivery evidence -->
+  <!-- Slide 4: Screen-share handoff -->
   <section class="slide slide-dense">
-    <p class="eyebrow">resolution part 2 // delivery evidence, rendered from docs/evidence.js</p>
-    <h1>Devin compressed a multi-day proof package into one assisted hour. <span id="ev-verified" class="warn">UNVERIFIED</span></h1>
-    <div class="body cols">
-      <div>
-        <div class="panel">
-          <h3>Delivered in the assisted session</h3>
-          <ul>
-            <li>Feature-flag change-control POC</li>
-            <li>Role-based approval and audit workflow</li>
-            <li>Docker-runnable environment</li>
-            <li>10 automated tests and 1 E2E workflow</li>
-            <li>Evidence package and this VP presentation deck</li>
-          </ul>
-          <p class="dim" style="margin-top:0.5vw">Conventional equivalent: typically multi-day delivery.</p>
+    <p class="eyebrow">screen share // devin build lifecycle, 2:30</p>
+    <h1>The proof is the build lifecycle, so I&rsquo;ll show the work now.</h1>
+    <div class="body">
+      <div class="cols">
+        <div style="flex:1.2">
+          <img class="shot" src="screenshots/queue.png" alt="Change-control queue">
+          <img class="shot" src="screenshots/request-detail.png" alt="Request detail with audit trail">
         </div>
-        <div class="panel">
-          <h3>Commands actually run</h3>
-          <ul id="ev-commands"></ul>
-        </div>
-      </div>
-      <div>
-        <div class="panel">
-          <h3>Repository facts</h3>
-          <div class="evidence-row"><span class="k">branch</span><span id="ev-branch">-</span></div>
-          <div class="evidence-row"><span class="k">commit</span><span id="ev-commit">-</span></div>
-          <div class="evidence-row"><span class="k">pull request</span><span id="ev-pr">-</span></div>
-          <div class="evidence-row"><span class="k">ci status</span><span id="ev-ci">-</span></div>
-        </div>
-        <div class="panel">
-          <h3>Reviewer-agent findings</h3>
-          <ul id="ev-reviewers"></ul>
+        <div>
+          <div class="panel">
+            <h3>Agentic development lifecycle</h3>
+            <pre>Brief -> Scope -> Build -> Test -> QA
+  -> Pull Request
+  -> AI-powered PR review -> Address
+  -> Re-test -> Re-review
+  -> CI green or keep fixing
+  -> Human review -> Merge
+  -> Deploy [skipped in this demo]</pre>
+          </div>
+          <p class="dim">What you just saw on screen: the working queue and audit trail. Next: the lifecycle that produced them, live in Devin.</p>
         </div>
       </div>
     </div>
-    <p class="dim qualifier">This is accelerated prototype delivery, not a one-hour production system. Security, real-provider integration, reliability, and operating ownership remain separate work.</p>
-    <div class="footer"><span>build vs buy readout</span><span>facts only from docs/evidence.js; no independent benchmarking implied</span></div>
+    <div class="footer"><span>build vs buy readout</span><span>return to slide 5 after the walkthrough</span></div>
   </section>
 
-  <!-- Slide 6: What transfers, what does not -->
+  <!-- Slide 5: Devin delivery value (return point) -->
   <section class="slide">
-    <p class="eyebrow">honest limits // grounded in PRODUCTION-GAPS.md</p>
-    <h1>The workflow patterns transfer. Enterprise platform guarantees do not.</h1>
+    <p class="eyebrow">devin delivery value // return point</p>
+    <h1>One Devin-assisted hour produced the proof package. Engineering still owns production.</h1>
+    <div class="body">
+      <div class="cols">
+        <div class="panel">
+          <h3>Delivered</h3>
+          <ul>
+            <li><span class="good">1 hour</span>: POC, tests, evidence, and presentation deck</li>
+            <li><span class="good">10</span> automated tests</li>
+            <li><span class="good">1</span> end-to-end workflow</li>
+            <li>Docker-runnable verification</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Comparison</h3>
+          <ul>
+            <li>Conventional equivalent: multiple engineer-days</li>
+          </ul>
+        </div>
+      </div>
+      <p class="dim qualifier">This measures accelerated prototype delivery and feedback speed. A production system still requires security, real-provider integration, reliability, and operating ownership.</p>
+    </div>
+    <div class="footer"><span>build vs buy readout</span><span>facts from the recorded build session</span></div>
+  </section>
+
+  <!-- Slide 6: Build-vs-buy boundary -->
+  <section class="slide">
+    <p class="eyebrow">boundary // what transfers, what does not</p>
+    <h1>Custom code can reproduce the workflow. Platform guarantees require deliberate replacement.</h1>
     <div class="body cols">
       <div>
         <div class="panel">
-          <h3>Replicable with custom code</h3>
+          <h3>Replicable with Devin-assisted engineering</h3>
           <ul>
-            <li>Custom UI tuned to the operation</li>
-            <li>Server-side role checks</li>
-            <li>State machines and approval workflows</li>
-            <li>Audit capture in the app layer</li>
-            <li>Provider adapters behind interfaces</li>
-            <li>Automated unit and E2E tests</li>
+            <li>Custom workflow UI and server-side role checks</li>
+            <li>Approval rules and state machines</li>
+            <li>Audit capture</li>
+            <li>Provider adapters and automated tests</li>
           </ul>
         </div>
       </div>
       <div>
         <div class="panel">
-          <h3>Must deliberately replace before production</h3>
+          <h3>Still requiring production work</h3>
           <ul>
-            <li>Real provider integration: idempotency, outbox, reconciliation</li>
-            <li>SSO/OIDC, MFA, on/offboarding</li>
-            <li>DLP and data policy equivalents</li>
-            <li>Durable, database-enforced audit controls and retention</li>
-            <li>Monitoring, alerting, backups</li>
-            <li>On-call ownership and patching</li>
+            <li>Real provider integration, idempotency, reconciliation</li>
+            <li>SSO, MFA, onboarding and offboarding</li>
+            <li>DLP and durable audit controls</li>
+            <li>Monitoring, backups, on-call ownership</li>
           </ul>
         </div>
       </div>
@@ -187,43 +152,33 @@ DRAFT -> PENDING_APPROVAL -> APPROVED -> APPLIED -> ROLLED_BACK
     <div class="footer"><span>build vs buy readout</span><span>full gap list in PRODUCTION-GAPS.md</span></div>
   </section>
 
-  <!-- Slide 7: The pilot -->
+  <!-- Slide 7: Closing ask -->
   <section class="slide">
-    <p class="eyebrow">next step // decision, not leap</p>
-    <h1>A 90-day pilot should earn, or stop, the migration decision.</h1>
+    <p class="eyebrow">closing ask // decision, not leap</p>
+    <h1>Start with a bounded pilot, then let evidence decide whether to expand, retain, or run hybrid.</h1>
     <div class="body cols">
       <div>
         <div class="panel">
-          <h3>Pilot shape</h3>
+          <h3>90-day sequence</h3>
           <ul>
-            <li>First: validate the $250K economics against your actual tenant</li>
-            <li>Run one bounded virtual flag workflow with real teams</li>
-            <li>Security and operations gate before any real provider or production change</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3>Measure</h3>
-          <ul>
-            <li>Cycle time per change</li>
-            <li>Failure and recovery rate</li>
-            <li>Audit completeness</li>
-            <li>Engineering effort and total cost of ownership</li>
+            <li>0 to 30: validate tenant economics and security requirements</li>
+            <li>31 to 60: run one bounded workflow with a real internal team</li>
+            <li>61 to 90: measure cycle time, recovery, audit completeness, engineering effort</li>
           </ul>
         </div>
       </div>
       <div>
         <div class="panel">
-          <h3>Decision paths at day 90</h3>
+          <h3>Three outcomes at day 90</h3>
           <ul>
-            <li><span class="good">Expand custom build</span>: primitives proved, economics favorable, gate passed</li>
-            <li><span class="warn">Retain Power Apps</span>: governance cost of custom outweighs licensing</li>
+            <li><span class="good">Expand</span> the custom-build path</li>
+            <li><span class="warn">Retain</span> Power Apps</li>
             <li><span class="dim">Hybrid</span>: Power Apps for governed workflows, custom for bounded tools</li>
           </ul>
         </div>
-        <p class="dim">Either outcome is a win: you decide with evidence from your own workflows instead of a vendor pitch in either direction.</p>
       </div>
     </div>
-    <div class="footer"><span>build vs buy readout</span><span>no savings invented; measure, then decide</span></div>
+    <div class="footer"><span>build vs buy readout</span><span>measure, then decide</span></div>
   </section>
 
   <div id="slide-number">1 / 7</div>

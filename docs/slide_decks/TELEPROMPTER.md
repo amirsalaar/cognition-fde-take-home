@@ -1,90 +1,76 @@
 # Teleprompter Script
 
-Target: 5 minutes total. Slides 1–4 take about 1 minute. Screen share takes 2 minutes 30 seconds. Slides 5–7 take about 1 minute 30 seconds.
+Target: 4 minutes 30 seconds total. Slides 1 to 4 take about 50 seconds. Screen share takes 2 minutes 30 seconds. Slides 5 to 7 take about 1 minute 10 seconds.
 Advance the slide when you reach the marker. Return to Slide 5 after the live walkthrough.
 
-Big Idea: Keep Power Apps where governance carries real risk. Use Devin to prove a custom-build path on bounded internal tools, then decide with evidence.
+Big Idea: Keep Power Apps where governance carries real risk. Use Devin to prove a repeatable custom-build path on bounded internal tools, then decide with evidence.
 
 ---
 
 ## Slide 1 (0:00 to 0:10)
 
-Good morning. I’m Amir Sojoudi. I’ll make the build-versus-buy case, then show the Devin build lifecycle and the working proof.
+Good morning. I'm Amir Sojoudi. Today I'll make the build-versus-buy case for Power Apps and Devin, show the working proof live, and close with a recommendation.
 
 **[ADVANCE]**
 
-## Slide 2 (0:10 to 0:35)
+## Slide 2 (0:10 to 0:25)
 
-The client spends about two hundred fifty thousand dollars a year on Power Apps. Three apps run there today, and at least ten more tools are planned.
+The client is a Series C fintech: about sixty engineers, roughly two hundred fifty thousand dollars a year on Power Apps, three internal apps live, at least ten more planned.
 
-My recommendation has two lanes. Keep KYC, refunds, and anything touching payments, access, or risk on Power Apps. Use Devin to prove a custom-build path on the next bounded tool. Power Apps carries governance. Devin accelerates engineering delivery, while the team owns the production system.
-
-**[ADVANCE]**
-
-## Slide 3 (0:35 to 1:00)
-
-The right answer changes by workflow. KYC carries PII and compliance risk. Refunds touch money and reconciliation. Feature flags give us the same propose, approve, apply, rollback, and audit shape with virtual data. A low-risk internal tool can reuse the same patterns next.
-
-That is the screen-share proof point: one built workflow, four clear places where the pattern could fit, and a risk boundary around what we build first.
+My recommendation has two lanes. Keep KYC, refunds, payments, access, and risk on Power Apps, where governance, audit, DLP, and managed operations carry real weight. Pilot Devin-assisted custom build on feature-flag change control and one more low-risk tool.
 
 **[ADVANCE]**
 
-## Slide 4 (1:00 to 1:05)
+## Slide 3 (0:25 to 0:40)
 
-I want to make the Devin claim concrete. I’m switching to screen share for two and a half minutes. I’ll show the lifecycle from brief to plan, build, tests, running workflow, and evidence. Then I’ll come back to the decision.
+The same control pattern, propose, approve, apply, rollback, audit, fits four use cases. Risk decides where we build first. KYC and refunds carry compliance, money, and operational risk, so they stay. Feature flags run the full pattern on virtual data, so that is what we built. A fourth low-risk tool is the next candidate; the pattern extends, but only the feature-flag workflow exists today.
+
+**[ADVANCE]**
+
+## Slide 4 (0:40 to 0:50)
+
+These screenshots are the working app: the change queue and the audit trail. The proof is the build lifecycle behind them, so I'm switching to screen share for two and a half minutes to show the work in Devin, from brief through review to merge.
 
 **[SCREEN SHARE]**
 
-## Live Devin walkthrough (1:05 to 3:35)
+## Live Devin walkthrough (0:50 to 3:20)
 
-### 0:00 to 0:25, brief and plan
+### 0:00 to 0:25, brief and scope
 
-Start in Devin with the original constraint: build a bounded feature-flag change-control plane, keep synthetic data, and make the workflow auditable.
+Start in Devin with the brief: a bounded feature-flag change-control plane, synthetic data, auditable workflow. Show the scoped plan.
 
-Show the plan and call out the scope boundary. The target is a working proof of role policy, approval, state transitions, audit, and a provider interface. It is not a production migration of KYC or refunds.
+### 0:25 to 1:10, build, test, QA
 
-### 0:25 to 1:25, running workflow
+Show Devin building the workflow, running the ten automated tests and the end-to-end test, and iterating through QA until they pass.
 
-Open the application. As Developer, create a flag-change request. Show the request moving from draft to pending approval.
+### 1:10 to 2:00, pull request and AI review
 
-Switch to the separate Release Approver. Approve the request, apply it, and show rollback as the recovery path. Then open the Auditor view and show the complete decision trail.
+Show the pull request, the automated AI-powered PR review, Devin addressing the findings, then looping back through test and QA and a second review pass.
 
-The value for this client is the control pattern: separation of duties, explicit transitions, reversible actions, and an audit record that an operator can inspect.
+### 2:00 to 2:30, CI, human review, merge
 
-### 1:25 to 2:05, implementation lifecycle
-
-Return to Devin or the repository. Show the server-side role policy, transition guard, two-person approval, audit writer, and provider adapter. Explain that the UI is the visible result; the reusable value sits in these controls.
-
-### 2:05 to 2:30, verification and client value
-
-Show the Docker verification, ten automated tests, one end-to-end workflow, and the evidence record.
-
-This is where Devin helps: it moves a clear brief through planning, implementation, testing, and explanation quickly enough to change the decision conversation. The same lifecycle can inform the next low-risk internal tool.
+Show Devin watching CI until green, then the human review and merge. Deploy is skipped in this demo. That full loop, brief to merged PR, is the lifecycle the team would own.
 
 **[RETURN TO SLIDE 5]**
 
-## Slide 5 (3:35 to 4:05)
+## Slide 5 (3:20 to 3:50)
 
-That walkthrough is the delivery evidence. In one Devin-assisted hour, we produced the working POC, the approval and audit workflow, a Docker-runnable environment, ten automated tests, one end-to-end browser test, the evidence package, and this presentation.
+One Devin-assisted hour produced the proof package: the POC, ten automated tests, one end-to-end workflow, Docker-runnable verification, the evidence, and this deck. We would normally budget multiple engineer-days for the equivalent.
 
-We would normally budget multiple engineer-days for an equivalent proof package. This measures prototype speed and feedback speed. Production still requires security, real-provider integration, reliability, and operating ownership.
-
-**[ADVANCE]**
-
-## Slide 6 (4:05 to 4:35)
-
-The workflow patterns are portable: custom UI, role checks, state machines, approvals, audit capture, provider adapters, and tests.
-
-The platform guarantees need deliberate replacements before production: real integration with idempotency and reconciliation, SSO and MFA, DLP and data policy, durable audit controls, monitoring, backups, and on-call ownership. That is why I recommend a hybrid path instead of a wholesale migration.
+This measures accelerated prototype delivery and feedback speed. A production system still requires security, real-provider integration, reliability, and operating ownership.
 
 **[ADVANCE]**
 
-## Slide 7 (4:35 to 5:00)
+## Slide 6 (3:50 to 4:05)
 
-The next step is a ninety-day pilot. First validate the actual tenant economics. Then run one bounded workflow with a real internal team behind a security and operations gate. Measure cycle time, recovery, audit completeness, engineering effort, and total cost of ownership.
+Custom code can reproduce the workflow: the UI, role checks, approval rules, state machines, audit capture, adapters, and tests. Platform guarantees need deliberate replacement: real provider integration, SSO and MFA, DLP equivalents, durable audit, monitoring, and on-call ownership.
 
-At day ninety, expand the custom path, retain Power Apps, or adopt the hybrid model. Devin fits into that path as the implementation partner for planning, building, testing, iterating, and documenting the bounded tools.
+**[ADVANCE]**
 
-Approve the pilot.
+## Slide 7 (4:05 to 4:30)
+
+The ask is a bounded ninety-day pilot. Days zero to thirty, validate tenant economics and security requirements. Thirty-one to sixty, run one bounded workflow with a real internal team. Sixty-one to ninety, measure cycle time, recovery, audit completeness, and engineering effort.
+
+Then the evidence decides: expand the custom-build path, retain Power Apps, or run the hybrid model. Approve the pilot.
 
 **[END]**
