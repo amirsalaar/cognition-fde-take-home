@@ -15,7 +15,7 @@ Good morning. I'm Amir Sojoudi. I'll make the build-versus-buy case for Power Ap
 
 ## Slide 2 (0:10 to 0:25)
 
-The client is a Series C fintech: about sixty engineers, roughly two hundred fifty thousand dollars a year on Power Apps, three internal apps live, at least ten more planned.
+You spend roughly two hundred fifty thousand dollars a year on Power Apps, with about sixty engineers, three internal apps live, and at least ten more planned.
 
 My recommendation has two lanes. Keep KYC, refunds, payments, access, and risk on Power Apps for its governance, audit, DLP, and managed operations. Pilot Devin-assisted custom build on feature-flag change control and one more low-risk tool.
 
@@ -29,7 +29,7 @@ The same control pattern, propose, approve, apply, rollback, audit, fits four us
 
 ## Slide 4 (0:40 to 0:50)
 
-These screenshots are the working app: the change queue and the audit trail. The proof is the build lifecycle behind them, so I'm switching to screen share for two and a half minutes to show the work in Devin, from brief to merge.
+These screenshots are the working app: the change queue and the audit trail. The proof is the build lifecycle behind them, so I'm switching to my Devin session who built this POC in 40 minutes, from brief to merge.
 
 **[SCREEN SHARE]**
 
