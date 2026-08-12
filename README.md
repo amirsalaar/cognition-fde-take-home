@@ -10,7 +10,7 @@ secret, payment system, or production environment is involved. Virtual PRODUCTIO
 only a label in the demo database. This is a prototype, not a Power Apps replacement
 and not a production flag service.
 
-![Change-Control Queue](docs/screenshots/queue.png)
+![Change-Control Queue](docs/slide_decks/screenshots/queue.png)
 
 More views in [docs/screenshots](docs/screenshots): [login](docs/screenshots/login.png),
 [request detail with audit trail](docs/screenshots/request-detail.png),
