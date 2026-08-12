@@ -23,3 +23,9 @@ HOSTNAME=0.0.0.0 for the container healthcheck, the Playwright image needed
 /app chowned to pwuser, AUTH_URL had to be dropped so Auth.js trusts the
 request host (localhost and e2e container both work), and the E2E now uses
 two browser contexts instead of logout/relogin in one page.
+
+## Deck revision (2026-08-12)
+
+- [x] Rebuild deck to 7 slides: opening, recommendation, use-case choice, screen-share handoff, Devin value (return point), boundary, closing ask
+- [x] Sync TELEPROMPTER.md to 4:30 timing with 2:30 screen share
+- [x] Verify keyboard navigation and rendering via CDP
